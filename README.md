@@ -1,4 +1,4 @@
-# TaskbarMagnify v0.2
+# TaskbarMagnify v0.3
 
 Native C++ / Win32 utility that adds a macOS-style magnification effect to the Windows 11 taskbar.
 

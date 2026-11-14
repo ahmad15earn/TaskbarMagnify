@@ -1,4 +1,4 @@
-// TaskbarMagnify v0.2
+// TaskbarMagnify v0.3
 // Event-driven: a low-level mouse hook posts a message only when the pointer moves.
 // All UI work runs on the main thread inside the message loop.
 #ifndef UNICODE
@@ -221,8 +221,8 @@ int WINAPI wWinMain(HINSTANCE hInst, HINSTANCE, PWSTR, int) {
     wc.lpszClassName = kOverlayClass;
     RegisterClassExW(&wc);
 
-    g_msgWnd = CreateWindowExW(0, kMsgClass, L"", 0, 0, 0, 0, 0,
-                               HWND_MESSAGE, nullptr, hInst, nullptr);
+    g_msgWnd = CreateWindowExW(0, kMsgClass, L"", WS_POPUP, 0, 0, 0, 0,
+                               nullptr, nullptr, hInst, nullptr);  // hidden, not message-only: receives broadcasts
     g_overlay = CreateWindowExW(WS_EX_LAYERED | WS_EX_TRANSPARENT | WS_EX_TOPMOST |
                                 WS_EX_TOOLWINDOW | WS_EX_NOACTIVATE,
                                 kOverlayClass, L"", WS_POPUP, 0, 0, 1, 1,
